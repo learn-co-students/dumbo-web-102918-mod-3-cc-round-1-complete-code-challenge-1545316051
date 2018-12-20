@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function loadImageHandler(imageData) {
-  console.log(imageData);
   const title = document.getElementById("name");
   const likes = document.getElementById("likes");
 
