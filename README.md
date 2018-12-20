@@ -180,13 +180,13 @@ To test your code you should be able to refresh the page and see any comments yo
 
 ## Step 6 - Delete a comment feature
 
-This feature is not required and you should only attempt if you have time.
+<!-- This feature is not required and you should only attempt if you have time.
 
 When you display new comments add a button next to each comment to delete that comment.
 
 Clicking the button should delete the comment from the DOM as well as deleting it from the database.
 
-Take the same iterative approach as before.
+Take the same iterative approach as before. -->
 
 #### API Docs
 
