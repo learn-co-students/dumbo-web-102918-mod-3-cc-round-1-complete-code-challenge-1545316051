@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 fetchPicture()
 likeUpdate()
 commentForm()
+deleteComment()
 })
 
 function fetchPicture(){
@@ -20,6 +21,7 @@ function fetchPicture(){
     .then(data => {
         showPicture(data)
         showComment(data)
+        deleteComment(data)
     })
 }
 
@@ -56,7 +58,8 @@ function showComment(data){
    data.comments.forEach(function(comment){
      let commentBoxUl = document.querySelector("#comments")
      let commentLi = document.createElement("li")
-    commentLi.innerText = comment.content
+    commentLi.innerHTML = `${comment.content}
+    <button type="button" class="delete-btn">X</button>`
     commentBoxUl.prepend(commentLi)
   })
 }
@@ -67,7 +70,9 @@ function commentForm(){
     e.preventDefault()
     let commentInput = e.target.querySelector('#comment_input')
     let commentLi = document.createElement("li")
-   commentLi.innerText = commentInput.value
+   commentLi.innerHTML = `${commentInput.value}
+   <button type="button" class="delete-btn">X</button>`
+
    commentBoxUl.prepend(commentLi)
    commentForm.reset()
    fetch(`https://randopic.herokuapp.com/comments`, {
@@ -81,4 +86,23 @@ function commentForm(){
    })
   })
 
+}
+function deleteComment(data){
+  let commentBoxUl = document.querySelector("#comments")
+  commentBoxUl.addEventListener("click", function(e){
+    if(e.target.classList.contains("delete-btn")){
+      let deleteBtn = e.target
+      let parent = deleteBtn.parentNode
+      parent.remove()
+
+      // data.comments.forEach(function(comment){
+      //   console.log(comment)
+      // fetch(`https://randopic.herokuapp.com/comments/${commentId}`, {
+      //   method: 'DELETE'
+      // }).then(res =>
+      // {message: 'Comment Successfully Destroyed'}
+    // )
+    // })
+    }
+  })
 }
