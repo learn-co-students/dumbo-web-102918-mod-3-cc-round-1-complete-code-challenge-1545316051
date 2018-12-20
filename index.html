@@ -10,8 +10,74 @@
   <style>
     input {
       font-size: 2rem;
+      border-radius: 12px;
+    }
+    body{
+      text-align: justify; text-align-last: center;
+    }
+    ul {
+    list-style-position: inside;
+    text-align: center;
+
     }
   </style>
+  <style>
+.button {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 10px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.button:hover {opacity: 1}
+</style>
+<style>
+.submit {
+background-color: green;
+border: none;
+color: white;
+padding: 5px 10px;
+text-align: center;
+font-size: 14px;
+margin: 4px 2px;
+opacity: 0.6;
+transition: 0.3s;
+display: inline-block;
+text-decoration: none;
+cursor: pointer;
+border-radius: 12px;
+}
+
+.submit:hover {opacity: 1}
+</style>
+<style>
+.like {
+background-color: blue;
+border: none;
+color: white;
+padding: 5px 10px;
+text-align: center;
+font-size: 14px;
+margin: 4px 2px;
+opacity: 0.6;
+transition: 0.3s;
+display: inline-block;
+text-decoration: none;
+cursor: pointer;
+border-radius: 12px;
+}
+
+.like:hover {opacity: 1}
+</style>
 </head>
 
 <body>
@@ -24,10 +90,10 @@
           <span>Likes:
             <span id="likes">Likes Go Here</span>
           </span>
-          <button id="like_button">Like</button>
+          <button class="like" id="like_button">Like</button>
           <form id="comment_form">
             <input id="comment_input" type="text" name="comment" placeholder="Add Comment"/>
-            <input type="submit" value="Submit"/>
+            <input class="submit" type="submit" value="Submit"/>
           </form>
           <ul id="comments">
                <!-- <li> for each comment goes here -->
