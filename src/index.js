@@ -81,10 +81,9 @@ function postComment(imageId) {
   commentForm.addEventListener("submit", (e) => {
 
     const commentInput = document.querySelector("#comment_input")
-    const commentsUl = document.querySelector("#comments")
-    const commentLi = document.createElement("li")
-    commentLi.innerText = commentInput.value
-    commentsUl.append(commentLi)
+    const comment = {}
+    comment.content = commentInput.value
+    renderComment(comment)
 
     e.preventDefault()
     fetch("https://randopic.herokuapp.com/comments", {
@@ -97,7 +96,7 @@ function postComment(imageId) {
         image_id: imageId,
         content: commentInput.value
       })
-    }).then(commentInput.value = "")
+    }).then(commentForm.reset())
   })
 }
 
