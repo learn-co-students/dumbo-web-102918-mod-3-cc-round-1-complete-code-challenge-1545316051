@@ -41,8 +41,17 @@ function renderComment(comment) {
   const commentsUl = document.querySelector("#comments")
   const commentLi = document.createElement("li")
   commentLi.innerText = comment.content
+  commentLi.dataset.id = comment.id
 
   commentsUl.append(commentLi)
+
+  const deleteButton = document.createElement("button")
+  deleteButton.id = "delete-button"
+  deleteButton.innerText = "delete"
+
+  commentLi.append(deleteButton)
+
+  commentLi.addEventListener("click", (e) => deleteComment(e))
 }
 
 function likeImage(imageId) {
@@ -90,4 +99,14 @@ function postComment(imageId) {
       })
     }).then(commentInput.value = "")
   })
+}
+
+function deleteComment(e) {
+  e.preventDefault()
+  const commentId = e.target.parentNode.dataset.id
+  if (e.target.id === "delete-button") {
+    fetch(`https://randopic.herokuapp.com/comments/${commentId}`, {
+      method: "DELETE"
+    }).then(e.target.parentNode.remove())
+  }
 }
