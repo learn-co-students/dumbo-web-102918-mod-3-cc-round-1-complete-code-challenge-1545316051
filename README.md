@@ -136,7 +136,7 @@ Filling out the input and clicking 'Submit' should append your new comment as an
 
 ## Step 5 - Comment Feature (Backend)
 
-As before, after optimistically rendering a comment we need to persist the comment to the database.
+<!-- As before, after optimistically rendering a comment we need to persist the comment to the database.
 
 #### API Docs
 
@@ -174,7 +174,7 @@ Example Response (created comment):
 
 Since we are using optimistic rendering, you shouldn't have to do anything with the response.
 
-To test your code you should be able to refresh the page and see any comments you added.
+To test your code you should be able to refresh the page and see any comments you added. -->
 
 ## BONUS - NOT REQUIRED
 

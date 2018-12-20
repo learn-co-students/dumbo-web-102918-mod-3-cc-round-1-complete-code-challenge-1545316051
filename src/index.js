@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById("comment_form").addEventListener("submit", formCommentHandler);
 
+  document.getElementById("comments").addEventListener("click", deleteHandler);
+
   fetch(imageURL).then(res => res.json()).then(loadImageHandler);
 
 })
@@ -32,7 +34,13 @@ function loadImageHandler(imageData) {
 function addComment(comment) {
   const ulRoot = document.getElementById("comments");
   const liNode = document.createElement("li");
+  const btnDelete = document.createElement("button");
+  btnDelete.type = "button";
+  btnDelete.innerText = "Delete";
+  if(comment.id === undefined) btnDelete.dataset.id = 0;
+  else btnDelete.dataset.id = comment.id;
   liNode.innerText = comment.content;
+  liNode.appendChild(btnDelete);
   ulRoot.appendChild(liNode);
 }
 
@@ -51,8 +59,20 @@ function formCommentHandler(e) {
   let commentValue = { content: e.target.children[0].value };
   addComment(commentValue);
 
-  fetch(commentsURL, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify({ image_id: imageId, content: commentValue.content }) });
+  fetch(commentsURL, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify({ image_id: imageId, content: commentValue.content }) }).then(res => res.json()).then(data => {
+    document.getElementById("comments").lastChild.children[0].dataset.id = data.id;
+  });
 
   e.target.reset();
-  // debugger;
+
+}
+
+function deleteHandler(e) {
+  const commentsURL = `https://randopic.herokuapp.com/comments/`
+
+  if(e.target.type === "button") {
+    const commentId = e.target.dataset.id;
+    fetch(commentsURL + `${commentId}`, { method: "DELETE" })
+    e.target.parentNode.remove();
+  }
 }
