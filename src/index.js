@@ -41,7 +41,18 @@ function likePic() {
     let newLike = like
     newLike++
     document.querySelector('#likes').innerText = newLike
+    postLike(newLike)
   }
-  
 }
 
+function postLike(newLike) {
+  fetch('https://randopic.herokuapp.com/images/1713', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json',
+      'Content-Type' : 'application/json',
+     },
+    image_id: 1713,
+    like: newLike
+  })
+
+}
