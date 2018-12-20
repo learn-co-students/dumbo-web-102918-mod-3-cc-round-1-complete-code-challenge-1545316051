@@ -1,4 +1,6 @@
 let imageId = 1 //Enter the id from the fetched image here
+let pictureParent = document.querySelector('#image_card')
+
 
 const imageURL = `https://randopic.herokuapp.com/images/${imageId}`
 
@@ -16,7 +18,6 @@ function getPicture () {
 
 function postPicture(data) {
   console.log(data)
-  let pictureParent = document.querySelector('#picParent')
   let image = document.querySelector('#image')
     image.src = data.url
   let name = document.querySelector('#name')
@@ -30,5 +31,17 @@ function postPicture(data) {
     comment = document.createElement('li')
     comment.innerText = data.comments[0].content
     commentsUl.appendChild(comment)
+}
+
+pictureParent.addEventListener('click', likePic)
+
+function likePic() {
+  let like = document.querySelector('#likes').innerText
+  if (event.target.className.includes('likes')) {
+    let newLike = like
+    newLike++
+    document.querySelector('#likes').innerText = newLike
+  }
+  
 }
 
