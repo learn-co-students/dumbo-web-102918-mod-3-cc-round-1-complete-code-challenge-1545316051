@@ -32,8 +32,10 @@ For this challenge it is important to work iteratively, one feature at a time, b
 We have provided what we believe to be a good breakdown of how to approach the this problem:
 
 ## Step 1 - Get the Image Data
+Image ID: 1712
+URL: https://randopic.herokuapp.com/images/1712
 
-When the page loads you will need to make a request to the API to get the data about your picture. The API follows RESTful conventions.
+<!-- When the page loads you will need to make a request to the API to get the data about your picture. The API follows RESTful conventions.
 
 #### API Docs
 
@@ -73,21 +75,21 @@ Use the data from the API response to change what's currently on the page (take 
 - the number of likes
 - any comments in an unordered list
 
-(If you cannot get your fetch request to work correctly you can always use the example response above to append content to the DOM and work with for the subsequent steps)
+(If you cannot get your fetch request to work correctly you can always use the example response above to append content to the DOM and work with for the subsequent steps) -->
 
 ## Step 2 - Like Feature (Frontend)
 
-The next feature to approach is the functionality to add likes to a picture. First get this working in the browser only without worrying about persistence.
+<!-- The next feature to approach is the functionality to add likes to a picture. First get this working in the browser only without worrying about persistence.
 
 Clicking the 'Like' button should increase the number of likes by one.
 
-A user can like the same picture multiple times.
+A user can like the same picture multiple times. -->
 
 ---
 
 ## Step 3 - Like Feature (Backend)
 
-This app will use what is called _optimistic rendering_. This means the DOM will be updated before the changes are added to the database. When a user clicks the 'Like' button we will immediately update the DOM. Next your job is to make a POST request to persist the new Like in the backend database.
+<!-- This app will use what is called _optimistic rendering_. This means the DOM will be updated before the changes are added to the database. When a user clicks the 'Like' button we will immediately update the DOM. Next your job is to make a POST request to persist the new Like in the backend database.
 
 #### API Docs
 
@@ -122,19 +124,19 @@ Example Response:
 
 Since we are using optimistic rendering, you shouldn't have to do anything with the response.
 
-To test your code you should be able to refresh the page and see the number of likes be the increased number.
+To test your code you should be able to refresh the page and see the number of likes be the increased number. -->
 
 ---
 
 ## Step 4 - Comment Feature (Frontend)
 
-The next feature to approach is the functionality to add comments to a picture. First get this working in the browser only without worrying about persistence.
+<!-- The next feature to approach is the functionality to add comments to a picture. First get this working in the browser only without worrying about persistence.
 
-Filling out the input and clicking 'Submit' should append your new comment as an `<li>` to the comments unordered list element. You should also clear out the comment input, so it's an empty field for the next comment to be added.
+Filling out the input and clicking 'Submit' should append your new comment as an `<li>` to the comments unordered list element. You should also clear out the comment input, so it's an empty field for the next comment to be added. -->
 
 ## Step 5 - Comment Feature (Backend)
 
-As before, after optimistically rendering a comment we need to persist the comment to the database.
+<!-- As before, after optimistically rendering a comment we need to persist the comment to the database.
 
 #### API Docs
 
@@ -172,19 +174,19 @@ Example Response (created comment):
 
 Since we are using optimistic rendering, you shouldn't have to do anything with the response.
 
-To test your code you should be able to refresh the page and see any comments you added.
+To test your code you should be able to refresh the page and see any comments you added. -->
 
 ## BONUS - NOT REQUIRED
 
 ## Step 6 - Delete a comment feature
 
-This feature is not required and you should only attempt if you have time.
+<!-- This feature is not required and you should only attempt if you have time.
 
 When you display new comments add a button next to each comment to delete that comment.
 
 Clicking the button should delete the comment from the DOM as well as deleting it from the database.
 
-Take the same iterative approach as before.
+Take the same iterative approach as before. -->
 
 #### API Docs
 
